@@ -7,6 +7,7 @@ If you have a dynamic IP and you're hosting servers behind it, it's an easy way 
 
 ## Dependencies
   - Docker
+  - For AAAA records an IPv6 address either for your container or on your host.
 	
 ## Features
   - Two ways to grab your IP address
