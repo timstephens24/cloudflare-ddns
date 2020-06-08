@@ -13,6 +13,7 @@ If you have a dynamic IP and you're hosting servers behind it, it's an easy way 
   	- HTTP 
 	- DNS lookup (dig)
   - IPv4 and IPv6 support (A and AAAA records)
+    - For IPv6 you might need to add --net=host
   - Logging
   - One configuration file for multiple records
   - Multiple record settings:
@@ -40,7 +41,7 @@ Just add a line to your [crontab](http://en.wikipedia.org/wiki/Cron) and let
 cron run it for you at a regular interval.
 
     # Every 30 minutes, update my Cloudflare records.
-    */30 * * * * python /path/to/cloudflare-ddns.py -z example.com
+    */30 * * * * docker run --net=host -it --rm --name cloudflare -e DOMAIN=example.com cloudflare-ddns
 
 This example will update your records every 30 minutes. You'll want to be sure
 that you insert the correct paths to reflect where the codebase is located.
@@ -54,4 +55,5 @@ If you want to learn more about the Cloudflare API, you can read on
  - [icanhazip.com](http://icanhazip.com/) for making grabbing your public IP
     from a script super easy.
  - [thatjpk](https://github.com/thatjpk/) for the initial releases of this project.
+ - [adrienbrignon](https://github.com/adrienbrignon/) for his fork that all this code except the Dockerfile.
 
