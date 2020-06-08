@@ -46,7 +46,7 @@ After the initial pull you just need to start it again:
 
 To automate it after running you could use crontab to run it every 30 minutes:
 
-`*/30 * * * * python /path/to/cloudflare-ddns.py -z example.com`
+`*/30 * * * * docker start cloudflare`
 
 If you want to learn more about the Cloudflare API, you can read on
 [here](https://api.cloudflare.com/).
