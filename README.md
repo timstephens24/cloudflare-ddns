@@ -2,7 +2,7 @@
 This is just a docker version version of [adrienbrignon's cloudflare-ddns](https://github.com/adrienbrignon/cloudflare-ddns).
 
 ## Introduction
-A script for dynamically updating Cloudflare DNS records.
+A docker for dynamically updating Cloudflare DNS records.
 If you have a dynamic IP and you're hosting servers behind it, it's an easy way to make it 'pseudo-static'.
 
 ## Dependencies
