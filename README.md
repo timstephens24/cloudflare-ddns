@@ -29,23 +29,15 @@ First, a few assumptions:
   - You're using Cloudflare to host DNS for a domain you own.
   - You have one or more A/AAAA records in Cloudflare you intend to dynamically update.
 
-To use this utility, create a copy of the `example.com.yml` file inside the `zones` folder and rename it to your zone name.
-The script will determine your public IP address and automatically update the records along with it and the settings you provided.
 
-If the program encounters an issue while attempting to update Cloudflare's 
-records, you can check the the `logs` folder for more informations.
+To use this utility, create a copy of the `example.com.yml` file inside the volume you want to pass to the docker container, i.e. `/opt/docker/cloudflare-ddns/example.com.yml`.
+The script will determine your public IP address and automatically update the records along with it and the settings you provided.
 
 Because dynamic IPs can change regularly, it's recommended that you run this
 utility periodically in the background to keep your records up-to-date.
 
-Just add a line to your [crontab](http://en.wikipedia.org/wiki/Cron) and let
-cron run it for you at a regular interval.
-
-    # Every 30 minutes, update my Cloudflare records.
-    */30 * * * * docker run --net=host -it --rm --name cloudflare -e DOMAIN=example.com cloudflare-ddns
-
-This example will update your records every 30 minutes. You'll want to be sure
-that you insert the correct paths to reflect where the codebase is located.
+The easiest way to execute is to just run it:
+`docker run --net=host --name cloudflare -e DOMAIN=example.com -v '/opt/docker/cloudflare-ddns:/app/zones' timstephens24/cloudflare-ddns`
 
 If you want to learn more about the Cloudflare API, you can read on
 [here](https://api.cloudflare.com/).
