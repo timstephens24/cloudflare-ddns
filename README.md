@@ -37,7 +37,12 @@ Because dynamic IPs can change regularly, it's recommended that you run this
 utility periodically in the background to keep your records up-to-date.
 
 The easiest way to execute is to just run it:
+
 `docker run --net=host --name cloudflare -e DOMAIN=example.com -v '/opt/docker/cloudflare-ddns:/app/zones' timstephens24/cloudflare-ddns`
+
+After the initial pull you just need to start it again:
+
+`docker start cloudflare`
 
 If you want to learn more about the Cloudflare API, you can read on
 [here](https://api.cloudflare.com/).
